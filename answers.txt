@@ -1,0 +1,64 @@
+Ameen Saleh 
+Jamshidi
+October 20,2024
+CS 4080
+
+Question 1:
+					<Program>
+					    |
+					    V
+					<Statement>
+					    |
+					    V
+					<Assignment>
+					    /|\
+					   / | \
+			        <Identifier> =	<Expression>
+				     |                | 
+				     V 	              V
+				     A              <Term>
+						     /|\
+ 						    / | \
+ 					       <Term> x <Factor>
+   						  |        |
+						  V        |
+                                               <Factor>    |
+					          |        |
+						  V        |
+					   <Identifier>    |
+						  |        |
+						  V        V
+						  C   <Expression>
+							  /|\
+							 / | \
+					      <Expression> + <Term>
+                                                     |          |
+                                                     V	        V
+                                                   <Term>    <Factor>
+						     |          |
+				                     V          V
+						 <Factor>    <Identifier>
+						     |          |
+						     V          V
+					             C	        B 
+ 
+-> Statment -> Assignment -> Identifier = Expression -> A = Expression -> A = Term X Factor -> A = Factor X Factor -> A = Identifier X Factor -> A = B X (Expression)
+ 
+-> A = B X (Term X Factor) -> A = B X (Factor X Factor) -> A = B (Identifier X Factor) -> A = B X (C X Factor) -> A = B X (C X (Expression)) -> A = B X (C X (Expression + Term)
+
+-> A = B X (C X (Term + Term) -> A = B X (C X (Factor + Term) -> A = B X (C X (Identifier + Term) -> A = B X (C X (A + Term)) -> A = B X (C X (A + Factor)) -> A = B X (C X (A + Identifier)
+
+-> A = B X (C X (A + B))
+
+Question 2
+a.  foo would first set the x value to u which is 42 essentially while the V value stays the same at 69 as it is statically bound
+we then go into bar function which makes it so that value we use for x in the add function is linked to v which is 69 then using the add function
+we get the answer to be 69 + 43 +69 which is equal to 180 which is what the function will print
+180 is printed
+b. With dynamic deep binding we initialize v as equal to 42 from u then from there we move to the bar add function in which we make w equal to 17
+with v carrying over the same variable as the one initialized in the beginning however since we changed the value of V in the foo fucntion when we 
+do the add we get  u:= u + u + u where u is equal to 42 resulting in our answer being 126 because foos v was turned into U/42 initially
+126 is printed
+c.with dynamic scope binding we first initialize v as 42 we then set u to 17 in the bar fucntion we then initialize the add function in which z is equal to local foo v which 
+is 42 at this point and we get that U:= 42 + 17 + 42 which gives us the result of 101
+101 is printed 
